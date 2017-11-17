@@ -11,10 +11,14 @@ export class RetrieveItemsService {
   constructor(private http: Http) { }
 
   getItems(){
-    console.log("went into getItems function"); 
     return this.http.get(this.localhost + "RetrieveItems");
   }
   getUsers(){
-
+    //the second parameter is necessary since this is a post
+    return this.http.post(this.localhost + "RetrieveItems", null); 
+  }
+  getOneItem(itemID){ 
+    //get ALL information for a particular item
+    return this.http.get(this.localhost + "ItemData?itemID="+ itemID); 
   }
 }

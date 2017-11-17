@@ -7,7 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { ItemsComponent } from './items/items.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpModule }    from '@angular/http';
-import { RetrieveItemsService } from './services/retrieve-items.service'; 
+import { RetrieveItemsService } from './services/retrieve-items.service';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent}, //home
   { path: "items", component: ItemsComponent } //items

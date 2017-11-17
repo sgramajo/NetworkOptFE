@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-4" *ngFor="let item of items">
+    <div class="col-4 cursor" *ngFor="let item of items" (click)="itemInfo(item.asin)"  data-toggle="modal" data-target="#itemModal">
       <img src="{{item.imUrl }}" alt="productImage">
       <div class="productCaption">
         <h2>{{ item.title }}</h2>
@@ -7,4 +7,46 @@
         <!-- Here goes the stars -->
       </div> 
     </div>
+</div>
+
+<!-- Modal --> 
+<div class="fade modal" data-backdrop="static" data-keyboard="false" id="itemModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">title of product</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Item Description --> 
+        <div id="itemDescription">
+
+        </div>
+        <div id="reviews">
+          <!--<div *ngFor="let review of itemData.reviews">
+            <h7>{{ review.summary }}</h7>
+            <div class="detailInfo">By {{ review.reviewerName }} on {{ review.reviewTime }}</div>
+            <p>{{ review.reviewText }}</p>
+          </div>-->
+        </div>
+        <!-- Here is where the Collaborative Filtering will go -->
+        <div id="collaborativeFiltering">
+          <h3>Collaborative Filtering</h3>
+          <div class="instructions">Given the list of users, select one and press the submit button.</div>
+          <div class="row">
+            <div class="col-6 allUsers">
+              <div class="users cursor" *ngFor="let user of allUsers" (click)="setUser(user)">
+                {{ user }}
+              </div>
+            </div>
+            <div class="col-6">
+              The selected user was <br /> {{ selectedIndividual }} <br />We estimate his rating for the item will be . 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
