@@ -1,0 +1,17 @@
+img{
+    height: 9em; 
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+h2{
+    font-size: 1em;
+    color: #424242; 
+}
+h5{
+    font-size: 15px;
+}
+.productCaption{
+    padding: 1.50em 1.5em 1.4em 1.5em; 
+    text-align: center; 
+}
