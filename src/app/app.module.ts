@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { ItemsComponent } from './items/items.component';
+import { UsersComponent} from './users/users.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpModule }    from '@angular/http';
 import { RetrieveItemsService } from './services/retrieve-items.service';
 const appRoutes: Routes = [
   { path: '', component: HomeComponent}, //home
-  { path: "items", component: ItemsComponent } //items
+  { path: "items", component: ItemsComponent }, //items
+  { path: "users", component: UsersComponent } //users
 ]
 
 @NgModule({
@@ -18,7 +20,8 @@ const appRoutes: Routes = [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    ItemsComponent
+    ItemsComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule, 

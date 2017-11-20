@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RetrieveItemsService } from '../services/retrieve-items.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
-  constructor() { }
+  items = [];
+  allUsers = [];  
+  selectedIndividual: String; 
+  itemData = {info: null, reviews: []};  
+  constructor(private dbService: RetrieveItemsService) { }
 
   ngOnInit() {
-  }
-
+  
+}
 }

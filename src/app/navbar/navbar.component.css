@@ -1,11 +1,14 @@
 nav{
     border-bottom: 1px solid #eee; 
+     background-color: #2c3e50;
+     margin-bottom: 20px;
 }
 li > a{
     text-transform: uppercase;
     position: relative;
     font-size: 16px;
-    color: #424242;
+    color: #ffff;
+   
     line-height: 50px;
     font-family: "Open Sans","HelveticaNeue","Helvetica Neue",sans-serif;
 }

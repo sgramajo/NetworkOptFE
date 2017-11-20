@@ -1,19 +1,21 @@
 <nav class="navbar navbar-expand-lg">
-  <a class="navbar-brand" href="#">Navbar</a>
+	<img src="assets/images/arc-logo.png" href="#" align="left" height="62" width="65">
+  <a class="navbar-brand" href="#">Some title here</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+    <ul class="navbar-nav mr-auto col-md-12">
+      <li class="col-md-9"></li>
+      <li class="nav-item active col-md-offset-9 col-md-1">
         <a class="nav-link" [routerLink]="['/']">Home</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item col-md-1">
         <a class="nav-link" [routerLink]="['/items']">Shop</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/']">Users</a>
+      <li class="nav-item col-md-1">
+        <a class="nav-link" [routerLink]="['/users']">Users</a>
       </li>
     </ul>
   </div>

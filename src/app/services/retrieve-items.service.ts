@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class RetrieveItemsService {
-  localhost = 'http://localhost:8080/NetworkBackEnd/';
+  localhost = 'http://localhost:8080/NetworkOptBE/';
 
   constructor(private http: Http) { }
 
@@ -21,4 +21,5 @@ export class RetrieveItemsService {
     //get ALL information for a particular item
     return this.http.get(this.localhost + "ItemData?itemID="+ itemID); 
   }
+ 
 }
