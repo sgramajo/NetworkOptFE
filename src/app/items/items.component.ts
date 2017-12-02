@@ -10,13 +10,17 @@ export class ItemsComponent implements OnInit {
   items = [];
   allUsers = [];  
   selectedIndividual: String; 
-  itemData = {info: null, reviews: []};  
+ 
+  //for an individual item in the popup section 
+  title: ""; 
+  reviews = [];
+  itemID: any; 
+  globalBaseline: any; 
+  collaborativeFiltering: any; 
   constructor(private dbService: RetrieveItemsService) { }
 
   ngOnInit() {
-    this.itemData = null; 
     this.dbService.getItems().subscribe(items=>{
-    console.log(items.json());
       this.items = items.json(); 
     });
     this.dbService.getUsers().subscribe(users=>{
@@ -26,13 +30,21 @@ export class ItemsComponent implements OnInit {
 
   itemInfo(itemID){
     this.dbService.getOneItem(itemID).subscribe(item=>{
-      console.log(item.json()); 
-      this.itemData = item.json(); 
+      var temp = item.json();
+      this.itemID = temp.info.asin; 
+      this.title = temp.info.title;
+      this.reviews = temp.reviews; 
     });
+    
   }
 
-  setUser(user){
-    this.selectedIndividual = user; 
+  setUser(name, id){
+    this.selectedIndividual = name; 
+    this.dbService.getRatings(this.itemID, id).subscribe(rating=>{
+      var temp = rating.json(); 
+      this.globalBaseline = temp.globalScore;
+      this.collaborativeFiltering = temp.collaborativeFiltering;   
+    }); 
   }
 
 }

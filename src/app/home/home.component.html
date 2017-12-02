@@ -1,4 +1,66 @@
-<p>
- Watch out for Exciting offers!
-
-</p>
+<div class="row top">
+    <div class="header col-12">
+      <h3 class="title textCenter">Recommender System</h3>
+      <h6 class="textCenter">By: Rebeca Amaya, Nandha Kumar Vinayagam, and Stacy Gramajo</h6>
+      <p class="textCenter">Being able to predict items that users will be interested in is a major part of modern companies today. Recommending items to users can have a large impact on revenues. For example, from 2006 to 2009, Netflix offered one million dollars to whoever could improve the accuracy of their recommender system by just ten percent [1]. This can be important for online purchasing sites such as Amazon, where their recommender systems can increase their revenue by 10-25% [2].  As such, our group thought it would be an interesting and useful project to research and implement.</p>
+      <p class="textCenter">There are several types of algorithms that can be used to implement recommender systems. One approach is to use collaborative based filtering which relies on the similarity between items or users. There are two types of collaborative filtering: user-user and item-item. With user-user collaborative filtering, the goal is to find users similar to the one you want to recommend items to. From there, we can assume that these similar users like and dislike similar items and a recommendation can be made. Conversely, with item-item filtering, similar items are identified. Then, based on a user’s ratings of an item, we can recommend items similar to one’s the user has rated highly. Both of these methods have advantages and disadvantages. However, item-item collaborative filtering tends to have higher accuracy because users are diverse, even amongst other similar users. Items are more concrete in their characteristics and can be clustered together with more accuracy [1, 2]. Taking this into account, our group decided to implement an item-item collaborative filter.</p>
+    </div>   
+</div>
+<div class="row" style="margin-top: 3em">
+    <div class="header col-12">
+      <h3 class="title textCenter">Accuracy Test</h3>
+      <p class="textCenter">The following items is ratings we took from friends and family to test our rating systems. These ratings are shown in the first table. For the accuracy test, we will be removing some of the movie ratings and see if the recommender system can figure out these blank scores (shown in the second table). Finally, the third table shows the ratings based on the global baseline algorithm implemented in our system.  </p>
+    </div>
+    <div class="col-12 textCenter">
+        The following is the table with our reviews of Disney movies:
+        <table style="margin: 0 auto">
+            <tr>
+                <td></td>
+                <td *ngFor="let reviewer of reviewers">{{ reviewer }}</td>
+            </tr>
+            <tr *ngFor="let movie of movies;let i=index">
+                <td>{{movie}}</td>
+                <td *ngFor="let score of reviews[i]">{{ score }}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-12" style="margin-top: 1em;">
+        Here is the table we used with some of the values hidden: 
+        <table style="margin: 0 auto">
+            <tr>
+                <td></td>
+                <td *ngFor="let reviewer of reviewers">{{ reviewer }}</td>
+            </tr>
+            <tr *ngFor="let movie of movies;let i=index">
+                <td>{{movie}}</td>
+                <td *ngFor="let score of missingReviews[i]">{{ score }}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-12" style="margin-top: 1em;">
+        Results: The following is the table with using the global baseline algorithm: 
+        <table style="margin: 0 auto">
+            <tr>
+                <td></td>
+                <td *ngFor="let reviewer of reviewers">{{ reviewer }}</td>
+            </tr>
+            <tr *ngFor="let movie of movies;let i=index">
+                <td>{{movie}}</td>
+                <td *ngFor="let score of globalReviews[i]">{{ score }}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-12" style="margin-top: 1em;">
+        Results: The following is the table with using the collaborative (item to item) algorithm: 
+        <table style="margin: 0 auto">
+            <tr>
+                <td></td>
+                <td *ngFor="let reviewer of reviewers">{{ reviewer }}</td>
+            </tr>
+            <tr *ngFor="let movie of movies;let i=index">
+                <td>{{movie}}</td>
+                <td *ngFor="let score of collaborativeReviews[i]">{{ score }}</td>
+            </tr>
+        </table>
+    </div>
+</div>

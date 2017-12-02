@@ -1,51 +1,35 @@
-
-
-<div class="row">
-    <div class="col-4 cursor" *ngFor="let item of items" (click)="retrieveOneUser(Reviews.asin)"  data-toggle="modal" data-target="#itemModal">
-      <img src="assets/images/User.png" alt="productImage">
+<div class="row" style="margin-top: 3em">
+    <div class="header col-12">
+      <h3 class="title textCenter">Users</h3>
+      <p class="textCenter">The following items are users that left reviews in the home and kitchen items. 
+        Click on any of the users to view the recommendation items for these individuals. These recommendations are based on the items from products shown in the other page. </p>
+    </div>
+    <div class="col-4 cursor" *ngFor="let user of users" (click)="getRecommendedItems(user.name, user.id)"  data-toggle="modal" data-target="#itemModal">
       <div class="productCaption">
-        <h2> UserName{{allUsers.reviewerID}}{{ allUsers.reviewerName }}</h2>
-        <h5></h5>
-        <!-- Here goes the stars -->
+        <h2>{{ user.name }}</h2>
       </div> 
     </div>
 </div>
 
 <!-- Modal --> 
 <div class="fade modal" data-backdrop="static" data-keyboard="false" id="itemModal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Name of the User</h5>
+        <h5 class="modal-title">{{ selectedIndividual }}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <!-- Item Description --> 
-        <div id="itemDescription">
-
-        </div>
-        <div id="reviews">
-          <!--<div *ngFor="let review of itemData.reviews">
-            <h7>{{ review.summary }}</h7>
-            <div class="detailInfo">By {{ review.reviewerName }} on {{ review.reviewTime }}</div>
-            <p>{{ review.reviewText }}</p>
-          </div>-->
-        </div>
-        <!-- Here is where the Collaborative Filtering will go -->
-        <div id="collaborativeFiltering">
-          <h3>Collaborative Filtering</h3>
-          <div class="instructions">Given the list of users, select one and press the submit button.</div>
+        <!-- Here is where the Global Baseline will go -->
+        <div id="globalBaseline">
+          <h3 class="title textCenter">Recommendation Items Scoring</h3>
+          <p>The following are the 30 different items that are Amazon products along with a score that was calculated using the global baseline. </p>
           <div class="row">
-            <div class="col-6 allUsers">
-              <div class="users cursor" *ngFor="let user of allUsers" (click)="setUser(user)">
-                {{ user }}
-              </div>
-            </div>
-            <div class="col-6">
-              The selected user was <br /> {{ selectedIndividual }} <br />We estimate his rating for the item will be . 
-            </div>
+            <ul>
+              <li *ngFor="let item of items"><span class="subTitle">{{ item.itemInfo.title }}</span> with a score of {{ item.rating }}</li>
+            </ul>
           </div>
         </div>
       </div>

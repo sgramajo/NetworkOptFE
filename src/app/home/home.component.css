@@ -1,0 +1,28 @@
+table tr td{
+    padding: 5px;
+}
+.title{
+    display: block;
+    font-family: "Open Sans","HelveticaNeue","Helvetica Neue",sans-serif;
+    font-weight: 700;
+    color: #ffc4dc;
+    margin: 0 0 0.5rem;
+    line-height: 1.4;
+}
+.textCenter{
+    text-align: center; 
+}
+p{
+    max-width: 60em; 
+    margin-right: auto;
+    margin-left: auto;
+    font-style: italic; 
+}
+.italic{
+    font-style: italic;
+}
+.top{
+    margin-top: 3em; 
+    padding-bottom: 2em; 
+    border-bottom: 1px solid gray;
+}

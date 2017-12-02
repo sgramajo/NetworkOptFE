@@ -1,3 +1,6 @@
+.instructions{
+    margin-bottom: 1em;
+}
 img{
     height: 9em; 
     margin-right: auto;
@@ -6,7 +9,12 @@ img{
 }
 h2{
     font-size: 1em;
-    color: #424242; 
+    color: #8AAAD8; 
+}
+.subTitle{
+    color: #8AAAD8;
+    font-size: 1em;
+    font-weight: 500; 
 }
 h5{
     font-size: 15px;
@@ -14,6 +22,9 @@ h5{
 .productCaption{
     padding: 1.50em 1.5em 1.4em 1.5em; 
     text-align: center; 
+    border: 1px solid gray;
+    border-radius: 4px;
+    margin-bottom: 1em;
 }
 .cursor{
     cursor: pointer;
@@ -22,12 +33,32 @@ h5{
     height: 20em;
     overflow-y: auto; 
 }
-.col-4{
-    flex: 0 0 33.333333%;
-    max-width: 30%;
-    margin: 10px;
-    border: 1px solid grey;
-    padding: 20px 5px 5px;
-    background-color: #b0c4de3b;
-    border-radius: 11px;
+.title{
+    display: block;
+    font-family: "Open Sans","HelveticaNeue","Helvetica Neue",sans-serif;
+    font-weight: 700;
+    color: #ffc4dc;
+    margin: 0 0 0.5rem;
+    line-height: 1.4;
+}
+.textCenter{
+    text-align: center; 
+}
+p{
+    max-width: 35.9375em; 
+    margin-right: auto;
+    margin-left: auto;
+    font-style: italic; 
+}
+.italic{
+    font-style: italic;
+}
+body{
+    font-family: "Open Sans","HelveticaNeue","Helvetica Neue",sans-serif; 
+}
+.header{
+    border-bottom: 1px solid gray; 
+    padding-bottom: 0.5em;
+    margin-bottom: 2em; 
+    display: block; 
 }

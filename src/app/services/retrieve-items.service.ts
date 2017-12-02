@@ -1,7 +1,7 @@
 import { Injectable, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import { HttpModule }    from '@angular/http';
-import { Headers, Http } from '@angular/http';
+import { Headers, Http, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
@@ -22,4 +22,17 @@ export class RetrieveItemsService {
     return this.http.get(this.localhost + "ItemData?itemID="+ itemID); 
   }
  
+ getRatings(itemID, userID){
+    let data = new URLSearchParams();
+    data.append('itemID', itemID);
+    data.append('userID', userID);
+    return this.http.post(this.localhost + "ItemData", data);
+     
+ }
+ getAccuracy(){
+   return this.http.post(this.localhost + "AccuracyResult", null); 
+ }
+ getRecommendedItems(userID){
+   return this.http.get(this.localhost + "AccuracyResult?userID=" + userID); 
+ }
 }

@@ -1,4 +1,8 @@
-<div class="row">
+<div class="row" style="margin-top: 3em" id="mainPlace">
+    <div class="header col-12">
+      <h3 class="title textCenter">Home and Kitchen Items</h3>
+      <p class="textCenter">The following items are home and kitchen items. Click on any of the items to view the reviews and to find the global baseline or a user rating using collabortive filtering. </p>
+    </div>
     <div class="col-4 cursor" *ngFor="let item of items" (click)="itemInfo(item.asin)"  data-toggle="modal" data-target="#itemModal">
       <img src="{{item.imUrl }}" alt="productImage">
       <div class="productCaption">
@@ -11,38 +15,40 @@
 
 <!-- Modal --> 
 <div class="fade modal" data-backdrop="static" data-keyboard="false" id="itemModal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog" role="document">
+  <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">title of product</h5>
+        <h5 class="modal-title">{{ title }}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <!-- Item Description --> 
-        <div id="itemDescription">
-
-        </div>
-        <div id="reviews">
-          <!--<div *ngFor="let review of itemData.reviews">
-            <h7>{{ review.summary }}</h7>
-            <div class="detailInfo">By {{ review.reviewerName }} on {{ review.reviewTime }}</div>
-            <p>{{ review.reviewText }}</p>
-          </div>-->
-        </div>
-        <!-- Here is where the Collaborative Filtering will go -->
+        <!--<div id="reviews">
+          <h4 class="title">Reviews</h4>
+          <div class="row">
+            <div class="col-6" *ngFor="let review of reviews" style="margin-top: 1em;">
+              <h6>{{ review.summary }}</h6>
+              <div class="detailInfo">By {{ review.reviewerName }} on {{ review.reviewTime }}</div>
+              <div>{{ review.reviewText }}</div>
+            </div>
+          </div>
+        </div>-->
+        <!-- Here is where the Collaborative Filtering and Global Baseline  will go -->
         <div id="collaborativeFiltering">
-          <h3>Collaborative Filtering</h3>
-          <div class="instructions">Given the list of users, select one and press the submit button.</div>
+          <h4 class="title">Collaborative Filtering + Global Baseline</h4>
+          <div class="instructions italic">Given the list of users, select one and press the submit button. The first result shown is the based on item-to-item collaborative
+            filtering. The second value is the global baseline. 
+          </div>
           <div class="row">
             <div class="col-6 allUsers">
-              <div class="users cursor" *ngFor="let user of allUsers" (click)="setUser(user)">
-                {{ user }}
+              <div class="users cursor" *ngFor="let user of allUsers" (click)="setUser(user.name, user.id)">
+                {{ user.name }}
               </div>
             </div>
-            <div class="col-6">
-              The selected user was <br /> {{ selectedIndividual }} <br />We estimate his rating for the item will be . 
+            <div class="col-6 textCenter">
+              The selected user was <br /> {{ selectedIndividual }} <br />
+              We estimate his rating for the item will be {{ collaborativeFiltering }} and {{ globalBaseline }}. 
             </div>
           </div>
         </div>
